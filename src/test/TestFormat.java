@@ -18,7 +18,6 @@
  */
 package test;
 import junit.framework.TestCase;
-
 import multiformat.*;
 
 public class TestFormat extends TestCase {
@@ -27,7 +26,7 @@ public class TestFormat extends TestCase {
 		super(arg0);
 	}
 
-    public void testFormatBase(){
+    public void testFormatBase() throws NumberBaseException{
     	Calculator calc = new Calculator();
     	
     	try {
@@ -43,13 +42,14 @@ public class TestFormat extends TestCase {
 			assertEquals("0.6",calc.secondOperand());
 
 			calc.setFormat(new FloatingPointFormat());
+			assertEquals("6.0*10^-1.0",calc.secondOperand());
 			assertEquals("C.0*10^-1.0",calc.secondOperand());
 			calc.setBase(new BinaryBase());
 			assertEquals("1.1*10^-1.0",calc.secondOperand());
 			calc.setBase(new DecimalBase());
 			assertEquals("7.5*10^-1.0",calc.secondOperand());
-			calc.setBase(new OctalBase());
-			assertEquals("6.0*10^-1.0",calc.secondOperand());
+			calc.setBase(new HexBase());
+			assertEquals("C.0*10^-1.0",calc.secondOperand());
 
 			calc.setFormat(new RationalFormat());
 			assertEquals("3.0/4.0",calc.secondOperand());

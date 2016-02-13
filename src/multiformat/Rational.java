@@ -19,9 +19,12 @@
 package multiformat;
 
 /**
- * Class representing a rational ('breuk').
- * @author J.Baljé: Added comments
+ * Rational klasse van de Calculator. Werkt met breuken.
+ * 
+ * @author Caroline, Sara
+ * @version 1.0
  */
+
 public class Rational {
 	static final double PRECISION=10;
 	static final double EPSILON = Math.pow(10,-PRECISION);

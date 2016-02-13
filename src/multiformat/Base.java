@@ -36,7 +36,8 @@ public abstract class Base {
     digits = p_digits;
 	EPSILON = Math.pow(base,-MAX_PRECISION);
   }
-
+  
+  public String getDigits() {return digits; }
   public String getName() { return name; }
   public int getBase() { return base; }
 
@@ -44,6 +45,7 @@ public abstract class Base {
    * Takes the input string and calculates the double value, using the current numberbase. 
    * @param number A String representation like "101.101" or "1A3.E56".
    * @return The decimal double value of the number. 
+ * @throws NumberBaseException 
    */
   double parse(String number) {
     // decodes the sign
@@ -68,12 +70,14 @@ public abstract class Base {
 
     double result = 0.0;
     double mult = Math.pow(base,power);
+    
     // process the number. "101.101" is 4*1 + 2*0 + 1*1 + 1*0.5 + ...
-    for(int i = 0; i < number.length(); i++)
+    for(int i = 0; i < number.length(); i++){
       if(number.charAt(i)!='.'){
         result += mult * digits.indexOf(number.charAt(i));
         mult /= base;
       }
+    }
     return result * sign;
   }
 

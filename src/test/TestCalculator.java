@@ -27,7 +27,7 @@ public class TestCalculator extends TestCase {
 		super(arg0);
 	}
 
-	public void testOperations(){
+	public void testOperations() throws NumberBaseException{
 	
 		Calculator calc = new Calculator();
 		

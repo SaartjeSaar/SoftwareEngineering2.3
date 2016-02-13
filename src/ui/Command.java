@@ -18,6 +18,7 @@
  */
 package ui;
 import multiformat.*;
+
 import java.io.*;
 
 /**
@@ -31,7 +32,7 @@ public class Command {
   BufferedReader prevReader=null;
   BufferedReader lineReader = new  BufferedReader( new InputStreamReader( System.in ) );
 
-  boolean nextCommand() {
+  boolean nextCommand() throws NumberBaseException {
     System.out.print("\n["+calc.getBase().getName()+","
                             + calc.getFormat().getName()+","
                             + calc.firstOperand() + ", "
@@ -61,12 +62,20 @@ public class Command {
       else if(command.equals("float")) calc.setFormat(new FloatingPointFormat());
       else if(command.equals("del")) calc.delete();
       else if(command.indexOf("op") >= 0) {
-        try{
-        	calc.addOperand(command.substring(2).trim());
-        }catch(FormatException e){
-          System.out.println("Wrong operand: " + e.getMessage());
-        }
-      }else if(command.indexOf("read")>=0){
+    	  command = command.substring(2).trim();     	
+      	try {
+      		CheckInput(command);
+      	} catch(NumberBaseException e) {
+      		System.out.println("Foutmelding: " + e.getMessage());
+      	}
+          try {
+          	calc.addOperand(command);
+          
+          } catch(FormatException e) {
+          		System.out.println("Wrong operand: " + e.getMessage());
+          }            
+      }
+      else if(command.indexOf("read")>=0){
         try{
           BufferedReader file = new  BufferedReader(
                           new FileReader( command.substring(4).trim() ) );
@@ -110,8 +119,21 @@ public class Command {
     System.out.println("  exit         (terminate execution)");
     System.out.println();
   }
-
-  public static void main(String[] args) {
+  
+  public void CheckInput (String command) throws NumberBaseException {
+	String Inhoud = command;    
+  	Inhoud = Inhoud.replaceAll("-.","");
+  	char[] digits = Inhoud.toCharArray();    	    	
+  	for (char huidig: digits) {
+  		int c = calc.getBase().getDigits().indexOf(huidig);
+  		if (c < 0) {
+  			throw new NumberBaseException("Het getal bestaat niet in het getallenstelsel "
+  		    + calc.getBase().getName());
+  		}    		
+  	} 
+  }  
+  
+  public static void main(String[] args) throws NumberBaseException {
     Command command = new Command();
     while(command.nextCommand());
   }
