@@ -37,6 +37,9 @@ public class GetalRij {
 			}
 			index++;
 		}
+		if (inhoudA = true){ 
+		System.out.println("Het gezochte getal: " + zoekWaarde +" is gevonden");
+		}
 		return inhoudA;
 	}
 
