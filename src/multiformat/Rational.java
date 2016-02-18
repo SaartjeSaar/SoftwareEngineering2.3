@@ -1,28 +1,10 @@
-/*
- * (C) Copyright 2005 Davide Brugali, Marco Torchiano
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
- * 02111-1307  USA
- */
 package multiformat;
 
 /**
  * Rational klasse van de Calculator. Werkt met breuken.
  * 
  * @author Caroline, Sara
- * @version 1.0
+ * @version 1.1
  */
 
 public class Rational {
@@ -42,22 +24,30 @@ public class Rational {
 		denominator = den;
 		simplify();
 	}
-
-	public Rational() {
-	}
-
+	
+	/**
+	 * Methode Rational
+	 * @param number Numerator  
+	 */
 	public Rational(double number) {
 		numerator = number;
 		denominator = 1.0;
 		canonical();
 		simplify();
 	}
+	
+	/**
+	 * Methode Rational 
+	 */
+	public Rational() {
+	
+	}
 
 	/**
 	 * Get rid of any decimals in the numerator. E.g. 12.5/1.0 becomes 125.0/10.0
 	 * (Note that any decimals in the denominator aren't handled, eg 10/0.5.
-	 *  This seems an omission.)
-	 *  Seen also unittest TestRational.java
+	 * This seems an omission.)
+	 * Seen also unittest TestRational.java
 	 */
 	public void canonical() {
 		double num = Math.abs(numerator);
@@ -76,7 +66,7 @@ public class Rational {
 
 	/**
 	 * Simplify the rational. 125/10 becomes 25/2.
-	 *  Seen also unittest TestRational.java
+	 * Seen also unittest TestRational.java
 	 */
 	public void simplify() {
 		// Take the smallest from the two (10.0)
@@ -114,7 +104,12 @@ public class Rational {
 										denominator * other.numerator
 								,denominator * other.denominator);
 	}
-
+	
+	/**
+	 * Subtract two rationals.
+	 * @param other Another Rational to add to this 
+	 * @return A new Rational representing the minus. 
+	 */	
 	public Rational minus(Rational other) {
 		if (denominator == other.denominator)
 			return new Rational(numerator - other.numerator, denominator);
@@ -123,13 +118,23 @@ public class Rational {
 									denominator * other.numerator
 								,denominator * other.denominator);
 	}
-
+	
+	/**
+	 * Multiply two rationals.
+	 * @param other Another Rational to add to this 
+	 * @return A new Rational representing the multiplication. 
+	 */	
 	public Rational mul(Rational other) {
 		return new Rational(
 			numerator * other.numerator,
 			denominator * other.denominator);
 	}
-
+	
+	/**
+	 * Divide two rationals.
+	 * @param other Another Rational to add to this 
+	 * @return A new Rational representing the divided answer. 
+	 */	
 	public Rational div(Rational other) {
 		if(other.getNumerator() == 0){
 			System.out.println("Kan niet delen door nul.");
@@ -141,13 +146,17 @@ public class Rational {
 			denominator * other.numerator);
 		}
 	}
-
+	
+	/**
+	 * Copy a rational
+	 * @param other Another Rational to copy to this  
+	 */	
 	public void copyOf(Rational other) {
 		this.numerator = other.numerator;
 		this.denominator = other.denominator;
 	}
 	
-	// Added getters and setters for unittesting purposes.
+	// Getters and setters for unittesting purposes.
 	public double getNumerator(){
 		return numerator;
 	}

@@ -64,7 +64,7 @@ public class Command {
       else if(command.indexOf("op") >= 0) {
     	  command = command.substring(2).trim();     	
       	try {
-      		CheckInput(command);
+      		checkNumber(command);
       	} catch(NumberBaseException e) {
       		System.out.println("Foutmelding: " + e.getMessage());
       	}
@@ -120,10 +120,10 @@ public class Command {
     System.out.println();
   }
   
-  public void CheckInput (String command) throws NumberBaseException {
+  public void checkNumber (String command) throws NumberBaseException {
 	String Inhoud = command;    
   	Inhoud = Inhoud.replaceAll("-.","");
-  	char[] digits = Inhoud.toCharArray();    	    	
+  	char[] digits = Inhoud.toCharArray(); 
   	for (char huidig: digits) {
   		int c = calc.getBase().getDigits().indexOf(huidig);
   		if (c < 0) {
