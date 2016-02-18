@@ -28,24 +28,16 @@ public class GetalRij {
 		}
 	}
 	
-	public boolean zitErinA( int zoekWaarde ) throws Exception{
+	public boolean zitErinA( int zoekWaarde ){
 		boolean inhoudA = false;
 		int index = 0;
 		while(index < getallen.length){
 			if(zoekWaarde == getallen[index]){
 				inhoudA = true;
+				System.out.println("Het gezochte getal: " + zoekWaarde +" is gevonden");
 			}
 			index++;
 		}		
-		if (inhoudA == true){ 
-			System.out.println("Het gezochte getal: " + zoekWaarde +" is gevonden");
-		}
-		else{
-			throw new Exception("Error! Not a floating point format");
-		}
-		if (inhoudA = true){ 
-		System.out.println("Het gezochte getal: " + zoekWaarde +" is gevonden");
-		}
 		return inhoudA;
 	}
 
@@ -55,6 +47,7 @@ public class GetalRij {
 		while(!inhoudB && index < getallen.length){
 			if(zoekWaarde == getallen[index]){
 				inhoudB = true;
+				System.out.println("Het gezochte getal: " + zoekWaarde +" is gevonden");
 			}
 			index++;
 		}

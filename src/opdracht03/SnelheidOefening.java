@@ -8,26 +8,25 @@ public class SnelheidOefening extends TestCase {
 	 * @param args
 	 */
 	public static void main( String[] args){
-		GetalRij gr = new GetalRij(100000, 200000);		
-	}
-	
-	public void testOperations() throws Exception{
+		GetalRij gr = new GetalRij(100000, 200000);	
+		//getalA
+		Random random = new Random();
+		//(range) + minimum
+		int zoekWaarde = random.nextInt(200000) + 0;
+		long startA = System.currentTimeMillis();
+		gr.zitErinA(zoekWaarde);
+		long endA = System.currentTimeMillis();	
+		System.out.println("De totaal verlopen tijd A is: " + (endA -startA) + " milliseconden");
 		
-		GetalRij gr = new GetalRij(100000, 200000);
-		
-		try{
-			Random random = new Random();
-			//(range) + minimum
-			int zoekWaarde = random.nextInt(200000) + 0;
-			long start = System.currentTimeMillis();
-			gr.zitErinA(zoekWaarde);
-			long end = System.currentTimeMillis();
-			System.out.println("De totaal verlopen tijd is: " + (end -start) + " seconden");
-		}catch(Exception e){
-			fail("Het getal is buiten bereik");
-		}			
+		//getalB
+		random = new Random();
+		//(range) + minimum
+		zoekWaarde = random.nextInt(200000) + 0;
+		long startB = System.currentTimeMillis();
+		gr.zitErinB(zoekWaarde);
+		long endB = System.currentTimeMillis();
+		System.out.println("De totaal verlopen tijd B is: " + (endB -startB) + " milliseconden");	
 	}
-
 	
 	// Hulpmethode voor tijdsbepaling
 	private static long tijd(){
