@@ -25,7 +25,7 @@ public class SnelheidOefening extends TestCase {
 			System.out.println("De totaal verlopen tijd is: " + (end -start) + " seconden");
 		}catch(Exception e){
 			fail("Het getal is buiten bereik");
-		}
+		}			
 	}
 
 	

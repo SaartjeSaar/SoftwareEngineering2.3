@@ -43,6 +43,9 @@ public class GetalRij {
 		else{
 			throw new Exception("Error! Not a floating point format");
 		}
+		if (inhoudA = true){ 
+		System.out.println("Het gezochte getal: " + zoekWaarde +" is gevonden");
+		}
 		return inhoudA;
 	}
 
