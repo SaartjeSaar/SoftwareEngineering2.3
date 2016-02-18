@@ -8,16 +8,16 @@ public class Inorder {
 	 
 	
 	public Inorder(){
-		Stack st = new Stack();
-		current = root;
-		while (current != null || st.isEmpty()) 
-			if ()
-			{
+		//Stack st = new Stack();
+		//current = root;
+		//while (current != null || st.isEmpty()) 
+			//if ()
+			//{
 				// zelf aanvullen, 2 regels
-			} 
-			else 
-			{
+			//} 
+			//else 
+			//{
 			// zelf aanvullen, 3 regels
-			}
+			//}
 	}
 }
