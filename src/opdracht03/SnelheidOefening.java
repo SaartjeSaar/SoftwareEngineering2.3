@@ -1,6 +1,7 @@
 package opdracht03;
+import junit.framework.TestCase;
 
-public class SnelheidOefening {
+public class SnelheidOefening extends TestCase {
 
 	/**
 	 * @param args
@@ -11,6 +12,7 @@ public class SnelheidOefening {
 
 	// Hulpmethode voor tijdsbepaling
 	private static long tijd(){
+		
 		return System.currentTimeMillis();
 	}
 
