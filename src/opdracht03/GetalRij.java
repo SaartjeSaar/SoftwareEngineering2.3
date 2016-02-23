@@ -34,9 +34,10 @@ public class GetalRij {
 		while(index < getallen.length){
 			if(zoekWaarde == getallen[index]){
 				inhoudA = true;
+				System.out.println("Het gezochte getal A: " + zoekWaarde +" is gevonden");
 			}
 			index++;
-		}
+		}		
 		return inhoudA;
 	}
 
@@ -44,8 +45,9 @@ public class GetalRij {
 		boolean inhoudB = false;
 		int index = 0;
 		while(!inhoudB && index < getallen.length){
-			if(zoekWaarde == getallen[index]){
+			if(getallen[index] == zoekWaarde){
 				inhoudB = true;
+				System.out.println("Het gezochte getal B: " + zoekWaarde +" is gevonden");
 			}
 			index++;
 		}
@@ -53,11 +55,26 @@ public class GetalRij {
 	}
 
 	public boolean zitErinC( int zoekWaarde ){
-		return false;
+		boolean inhoudC = false;
+		int index = 0;
+		while(!inhoudC && index < getallen.length){
+			if(getallen[index] == zoekWaarde){
+				inhoudC = true;
+				System.out.println("Het gezochte getal C: " + zoekWaarde +" is gevonden");
+			}
+			index++;
+		}
+		return inhoudC;
 	}
 
 	public boolean zitErinD( int zoekWaarde ){
-		return false;
+		boolean inhoudD = false;
+		int gevonden = gr.binarySearch();
+			if(gevonden == zoekWaarde){
+				inhoudD = true;
+				System.out.println("Het gezochte getal D: " + zoekWaarde +" is gevonden");
+			}
+		return inhoudD;
 	}
 	
 	public void sorteer(){
