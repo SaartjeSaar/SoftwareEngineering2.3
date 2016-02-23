@@ -1,10 +1,38 @@
 package opdracht01;
 
 public class Traversal{
+	TreeNode root;
+	
+	
+	public void addNode(int key, String name){
+		TreeNode t = new TreeNode(key, name);
+		
+		if(root==null){
+			root = t;
+		}else{
+			TreeNode focusNode = root;
+			TreeNode parent;
+			
+			while(true){
+				parent = focusNode;
+				if(key < focusNode.key){
+					focusNode = focusNode.left;
+					if (focusNode == null){
+						parent.left = t;
+						return;
+					}
+				}else{
+					focusNode = focusNode.right;
+					if(focusNode == null){
+						parent.right = t;
+						return;
+					}
+				}
+			}
+		}
+	}
 	
 	public static void main(String[] args){
-	
-		TreeNode t = new TreeNode(1);
 		t.addNode(50, "Person");
 		t.addNode(51, "Employee");
 		t.addNode(52, "Engineer");

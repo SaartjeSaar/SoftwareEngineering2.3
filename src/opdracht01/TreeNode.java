@@ -4,6 +4,7 @@ import java.util.*;
 
 public class TreeNode{
 	int value;
+	int key;
 	String name;
 	TreeNode left;
 	TreeNode right;
